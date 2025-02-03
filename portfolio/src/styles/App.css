@@ -1,0 +1,117 @@
+/* App.css */
+
+.navbar-custom {
+  background-color: transparent !important;
+  /* Quitar el fondo */
+  box-shadow: none;
+  /* Eliminar cualquier sombra */
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.navbar-link {
+  color: #ffffff !important;
+  /* Color dorado */
+  font-size: 2rem !important;
+  font-weight: bold;
+  margin: 0 10px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  /* Añadir sombra para mayor legibilidad */
+}
+
+.navbar-link:hover {
+  color: #FFFFFF !important;
+  /* Color blanco al pasar el mouse */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  /* Mantener sombra en hover */
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  /* Fondo negro translúcido */
+  padding: 20px 40px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+}
+
+.text-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+
+.text-overlay p {
+  font-size: 1.25rem;
+  color: #DDDDDD;
+  /* Gris claro */
+}
+
+
+
+/* Pelotitas animadas */
+.bubble {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 3s infinite ease-in-out;
+}
+
+/* Posiciones iniciales */
+.bubble-1 {
+  top: -10px;
+  left: -10px;
+  width: 10px;
+  height: 10px;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  top: -10px;
+  right: -10px;
+  width: 12px;
+  height: 12px;
+  animation-delay: 0.5s;
+}
+
+.bubble-3 {
+  bottom: -10px;
+  left: -10px;
+  width: 8px;
+  height: 8px;
+  animation-delay: 1s;
+}
+
+.bubble-4 {
+  bottom: -10px;
+  right: -10px;
+  width: 14px;
+  height: 14px;
+  animation-delay: 1.5s;
+}
+
+/* Animación de las pelotitas */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(20px, -20px);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

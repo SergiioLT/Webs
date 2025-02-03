@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: black">
+    <div class="div-title">
+      <h1 class="title">TIC-TAC-TOE</h1>
+    </div>
+
+    <div class="center-body">
+      <div class="grid-selector">
+        <label style="color: white" for="grid-size">Choose Grid</label>
+        <select id="grid-size">
+          <option style="color: black" value="2">2x2</option>
+          <option style="color: black" value="3" selected>3x3</option>
+          <option style="color: black" value="4">4x4</option>
+        </select>
+      </div>
+
+      <div class="body">
+        <div id="game-board" class="game-board"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
