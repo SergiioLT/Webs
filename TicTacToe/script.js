@@ -32,8 +32,10 @@ function handleCellClick(cell,row,col){
         board[row][col] = currentPlayer;
     
         if(checkWinner(row,col)){
-            alert(`Player ${currentPlayer} won`);
-            createBoard(board.length);
+            setTimeout(() => {
+                alert(`Player ${currentPlayer} won`);
+                createBoard(board.length); // Reiniciar el tablero
+            }, 100);
             return;
         }
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
