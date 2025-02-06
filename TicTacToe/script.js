@@ -9,7 +9,8 @@ function createBoard(size){
 
 
     gameBoard.innerHTML = "";
-    currentPlayer= "X";
+    currentPlayer= "X"
+    updateCurrentPlayer();
 
     gameBoard.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     gameBoard.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -18,8 +19,6 @@ function createBoard(size){
     for (let col = 0; col < size; col++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      cell.dataset.row = row; 
-      cell.dataset.col = col; 
       cell.addEventListener("click", () => handleCellClick(cell, row, col));
       gameBoard.appendChild(cell);
     }
@@ -30,15 +29,24 @@ function handleCellClick(cell,row,col){
     if(!cell.textContent){
         cell.textContent = currentPlayer;
         board[row][col] = currentPlayer;
-    
-        if(checkWinner(row,col)){
-            setTimeout(() => {
-                alert(`Player ${currentPlayer} won`);
-                createBoard(board.length); // Reiniciar el tablero
-            }, 100);
-            return;
-        }
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        
+
+        
+    if (checkWinner(row, col)) {
+      setTimeout(() => {
+        alert(`Player ${currentPlayer} won!`);
+        createBoard(board.length); // Reiniciar el tablero
+      }, 100);
+    } else if (board.flat().every(cell => cell !== null)) {
+      setTimeout(() => {
+        alert("It's a draw!");
+        createBoard(board.length); // Reiniciar el tablero
+      }, 100);
+    } else {
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+      updateCurrentPlayer();
+    }
+
     }
 }
 
@@ -57,6 +65,10 @@ function checkWinner(row,col){
   // No hay ganador
   return false;
 
+}
+
+function updateCurrentPlayer(){
+  document.getElementById("current-player").innerText = currentPlayer;
 }
 
 gridSizeSelector.addEventListener("change", (e)=> {
